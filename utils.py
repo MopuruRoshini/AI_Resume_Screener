@@ -1,8 +1,6 @@
 import pdfplumber
 import spacy
 import re
-import subprocess
-import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
@@ -13,16 +11,7 @@ nltk.download('stopwords', quiet=True)
 from nltk.corpus import stopwords
 
 # ---------- Load spaCy model (auto-download) ----------
-def load_spacy_model():
-    model_name = "en_core_web_sm"
-    try:
-        return spacy.load(model_name)
-    except OSError:
-        subprocess.run([sys.executable, "-m", "pip", "install",
-                        "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl"])
-        return spacy.load(model_name)
-
-nlp = load_spacy_model()
+nlp = spacy.load("en_core_web_sm")
 
 # ---------- PDF text extraction ----------
 def extract_text_from_pdf(pdf_file):
