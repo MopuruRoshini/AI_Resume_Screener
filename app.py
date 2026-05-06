@@ -8,7 +8,8 @@ from utils import extract_text_from_pdf, compute_similarity_and_skills, compare_
 # ========== PAGE CONFIG ==========
 st.set_page_config(
     page_title="AI Resume Screener | Smart Hiring",
-    page_icon="✨",
+    page_icon="image.png" \
+    "",
     layout="wide",
     initial_sidebar_state="expanded"
 )
